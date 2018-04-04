@@ -1,0 +1,6 @@
+{
+    "DISCO_L053C8_OS5": {
+        "inherits": ["DISCO_L053C8"],
+        "release_versions": ["5"]
+        }
+}

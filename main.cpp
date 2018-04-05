@@ -8,7 +8,8 @@ namespace
 DigitalOut green_led(LED1);
 DigitalOut red_led(LED2);
 
-EventQueue eventQueue;
+unsigned char eventQueueBuffer[EVENTS_QUEUE_SIZE];
+EventQueue eventQueue(EVENTS_QUEUE_SIZE, eventQueueBuffer);
 
 void toggleLeds() {
     green_led = !green_led;

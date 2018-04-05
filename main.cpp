@@ -1,7 +1,12 @@
 #include "mbed.h"
 
+namespace
+{
+
 DigitalOut green_led(LED1);
 DigitalOut red_led(LED2);
+
+}
 
 int main() {
     while (1) {

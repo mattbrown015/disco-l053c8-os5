@@ -1,4 +1,5 @@
 #include <mbed.h>
+#include <mbed_mem_trace.h>
 
 namespace
 {
@@ -9,6 +10,8 @@ DigitalOut red_led(LED2);
 }
 
 int main() {
+    mbed_mem_trace_set_callback(mbed_mem_trace_default_callback);
+
     puts("disco-l053c8-os5");
 
     while (1) {

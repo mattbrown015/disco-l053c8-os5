@@ -1,2 +1,6 @@
 BUILD/
 mbed_settings.pyc
+GPATH
+GRTAGS
+GTAGS
+NppGTags.cfg

@@ -9,6 +9,8 @@ DigitalOut red_led(LED2);
 }
 
 int main() {
+    puts("disco-l053c8-os5");
+
     while (1) {
 
         // LEDs ON

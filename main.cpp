@@ -1,5 +1,6 @@
 #include <mbed.h>
 #include <mbed_mem_trace.h>
+#include <mbed_stats.h>
 
 namespace
 {
@@ -13,6 +14,11 @@ int main() {
     mbed_mem_trace_set_callback(mbed_mem_trace_default_callback);
 
     puts("disco-l053c8-os5");
+
+    mbed_stats_heap_t heap_stats;
+    mbed_stats_heap_get(&heap_stats);
+    printf("Current heap: %lu\r\n", heap_stats.current_size);
+    printf("Max heap size: %lu\r\n", heap_stats.max_size);
 
     while (1) {
 

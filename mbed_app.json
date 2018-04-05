@@ -1,5 +1,8 @@
 {
-    "macros": ["MBED_MEM_TRACING_ENABLED"],
+    "macros": [
+        "MBED_MEM_TRACING_ENABLED",
+        "MBED_HEAP_STATS_ENABLED=1"
+    ],
     "target_overrides": {
         "*": {
             "platform.stdio-flush-at-exit": false

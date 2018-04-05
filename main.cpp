@@ -8,6 +8,19 @@ namespace
 DigitalOut green_led(LED1);
 DigitalOut red_led(LED2);
 
+EventQueue eventQueue;
+
+void toggleLeds() {
+    green_led = !green_led;
+    red_led = !red_led;
+}
+
+void checkHeap() {
+    mbed_stats_heap_t heap_stats;
+    mbed_stats_heap_get(&heap_stats);
+    printf("heap: current %lu max %lu\n", heap_stats.current_size, heap_stats.max_size);
+}
+
 }
 
 int main() {
@@ -15,23 +28,12 @@ int main() {
 
     puts("disco-l053c8-os5");
 
-    mbed_stats_heap_t heap_stats;
-    mbed_stats_heap_get(&heap_stats);
-    printf("Current heap: %lu\r\n", heap_stats.current_size);
-    printf("Max heap size: %lu\r\n", heap_stats.max_size);
+    puts("before creating events");
+    checkHeap();
 
-    while (1) {
+    eventQueue.call_every(1000, toggleLeds);
+    eventQueue.call_every(10000, checkHeap);
 
-        // LEDs ON
-        green_led = 1;
-        red_led = 1;
-
-        wait(0.2); // wait 200 ms
-
-        // LEDs OFF
-        green_led = 0;
-        red_led = 0;
-
-        wait(0.8); // wait 800 ms
-    }
+    puts("dispatch_forever");
+    eventQueue.dispatch_forever();
 }

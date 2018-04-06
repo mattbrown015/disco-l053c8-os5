@@ -1,7 +1,7 @@
 {
     "macros": [
-        "MBED_MEM_TRACING_ENABLED",
         "MBED_HEAP_STATS_ENABLED=1",
+        "MBED_MEM_TRACING_ENABLED",
         "MBED_SLEEP_TRACING_ENABLED_comment"
     ],
     "target_overrides": {

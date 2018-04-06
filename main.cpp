@@ -20,6 +20,8 @@ void checkHeap() {
     mbed_stats_heap_t heap_stats;
     mbed_stats_heap_get(&heap_stats);
     printf("heap: current %lu max %lu\n", heap_stats.current_size, heap_stats.max_size);
+
+    printf("sleep_manager_can_deep_sleep %d\n", sleep_manager_can_deep_sleep());
 }
 
 }
